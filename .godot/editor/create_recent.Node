@@ -1,0 +1,15 @@
+AnimatedSprite2D
+AudioStreamPlayer
+Button
+MarginContainer
+VBoxContainer
+Panel
+TextureRect
+CollisionShape2D
+Area2D
+Label
+CanvasLayer
+AnimationPlayer
+ColorRect
+Node
+VisibleOnScreenNotifier2D

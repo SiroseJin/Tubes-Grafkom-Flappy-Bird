@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://btp1ibsk4b7xt"]
+
+[ext_resource type="PackedScene" uid="uid://dtilpyyc3gkh2" path="res://Scene/bird.tscn" id="1_5nf66"]
+[ext_resource type="Script" path="res://Scene/GameManager.gd" id="1_ww3ei"]
+[ext_resource type="Texture2D" uid="uid://ccsg7f5lpkpeb" path="res://Assets/background-flappynight.png" id="2_2wir4"]
+[ext_resource type="PackedScene" uid="uid://cd7m1vf4tvbf5" path="res://Scene/ground.tscn" id="2_r6kxm"]
+[ext_resource type="Script" path="res://Scripts/pipe_spawner.gd" id="3_kjkin"]
+[ext_resource type="PackedScene" uid="uid://3o0d528vtdwf" path="res://Scene/fade.tscn" id="6_binhv"]
+[ext_resource type="PackedScene" uid="uid://dtsfutbumtxem" path="res://Scene/UI.tscn" id="7_u8p8e"]
+
+[node name="main" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ww3ei")
+
+[node name="World" type="Node" parent="."]
+
+[node name="Background" type="Sprite2D" parent="World"]
+texture_filter = 1
+position = Vector2(8, 10.4022)
+scale = Vector2(0.733333, 0.770514)
+texture = ExtResource("2_2wir4")
+
+[node name="PipeSpawner" type="Node" parent="."]
+script = ExtResource("3_kjkin")
+
+[node name="SpawnTimer" type="Timer" parent="PipeSpawner"]
+wait_time = 2.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Bird" parent="." instance=ExtResource("1_5nf66")]
+position = Vector2(10, -10)
+
+[node name="Ground" parent="." instance=ExtResource("2_r6kxm")]
+position = Vector2(1, 200)
+
+[node name="Fade" parent="." instance=ExtResource("6_binhv")]
+
+[node name="UI" parent="." instance=ExtResource("7_u8p8e")]
