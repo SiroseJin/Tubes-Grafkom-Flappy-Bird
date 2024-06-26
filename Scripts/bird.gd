@@ -45,10 +45,9 @@ func jump():
 	audio_stream_player.play()
 
 func rotate_bird():
-	# Rotate downwards when falling
+	# Rotasi
 	if velocity.y > 0 and rad_to_deg(rotation) < 90:
 		rotation += rotation_speed * deg_to_rad(1)
-	# Rotate upwards when rising
 	elif velocity.y < 0 and rad_to_deg(rotation) > -30:
 		rotation -= rotation_speed * deg_to_rad(1)
 

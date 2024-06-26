@@ -1,3 +1,6 @@
+Label
+TileMap
+Node
 AnimatedSprite2D
 AudioStreamPlayer
 Button
@@ -7,9 +10,5 @@ Panel
 TextureRect
 CollisionShape2D
 Area2D
-Label
 CanvasLayer
 AnimationPlayer
-ColorRect
-Node
-VisibleOnScreenNotifier2D

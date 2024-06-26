@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://btp1ibsk4b7xt"]
+[gd_scene load_steps=13 format=3 uid="uid://btp1ibsk4b7xt"]
 
 [ext_resource type="PackedScene" uid="uid://dtilpyyc3gkh2" path="res://Scene/bird.tscn" id="1_5nf66"]
-[ext_resource type="Script" path="res://Scene/GameManager.gd" id="1_ww3ei"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_ww3ei"]
 [ext_resource type="Texture2D" uid="uid://ccsg7f5lpkpeb" path="res://Assets/background-flappynight.png" id="2_2wir4"]
 [ext_resource type="PackedScene" uid="uid://cd7m1vf4tvbf5" path="res://Scene/ground.tscn" id="2_r6kxm"]
+[ext_resource type="Texture2D" uid="uid://b7pi73co03blv" path="res://Assets/Cave/ParallaxCave2.png" id="3_2myer"]
 [ext_resource type="Script" path="res://Scripts/pipe_spawner.gd" id="3_kjkin"]
+[ext_resource type="Texture2D" uid="uid://cye0t2lc2owvg" path="res://Assets/Cave/ParallaxCave1.png" id="4_f1c21"]
 [ext_resource type="PackedScene" uid="uid://3o0d528vtdwf" path="res://Scene/fade.tscn" id="6_binhv"]
+[ext_resource type="PackedScene" uid="uid://dd0r27pt5rac5" path="res://Scene/ground_2.tscn" id="6_nivy6"]
+[ext_resource type="PackedScene" uid="uid://6xbf1gh0sxeu" path="res://Scene/ground_3.tscn" id="7_kmtfe"]
 [ext_resource type="PackedScene" uid="uid://dtsfutbumtxem" path="res://Scene/UI.tscn" id="7_u8p8e"]
+[ext_resource type="FontFile" uid="uid://cu4lf4od2owng" path="res://Assets/font/FlappyBird.ttf" id="12_ch4c6"]
 
 [node name="main" type="Node"]
 
@@ -16,11 +21,25 @@ script = ExtResource("1_ww3ei")
 
 [node name="World" type="Node" parent="."]
 
-[node name="Background" type="Sprite2D" parent="World"]
+[node name="Background1" type="Sprite2D" parent="World"]
 texture_filter = 1
 position = Vector2(8, 10.4022)
 scale = Vector2(0.733333, 0.770514)
 texture = ExtResource("2_2wir4")
+
+[node name="Background2" type="Sprite2D" parent="World"]
+visible = false
+texture_filter = 1
+position = Vector2(-0.30011, -29.0798)
+scale = Vector2(0.249479, 0.411911)
+texture = ExtResource("3_2myer")
+
+[node name="Background3" type="Sprite2D" parent="World"]
+visible = false
+texture_filter = 1
+position = Vector2(-0.30011, -29.0798)
+scale = Vector2(0.249479, 0.411911)
+texture = ExtResource("4_f1c21")
 
 [node name="PipeSpawner" type="Node" parent="."]
 script = ExtResource("3_kjkin")
@@ -37,6 +56,26 @@ position = Vector2(10, -10)
 [node name="Ground" parent="." instance=ExtResource("2_r6kxm")]
 position = Vector2(1, 200)
 
+[node name="ground2" parent="." instance=ExtResource("6_nivy6")]
+visible = false
+position = Vector2(1, 200)
+
+[node name="ground3" parent="." instance=ExtResource("7_kmtfe")]
+visible = false
+position = Vector2(1, 200)
+
 [node name="Fade" parent="." instance=ExtResource("6_binhv")]
 
 [node name="UI" parent="." instance=ExtResource("7_u8p8e")]
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = -1.0
+offset_top = 408.0
+offset_right = 288.0
+offset_bottom = 459.0
+theme_override_fonts/font = ExtResource("12_ch4c6")
+theme_override_font_sizes/font_size = 45
+text = "Click To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
